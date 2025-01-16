@@ -3,13 +3,13 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const links = <>
-        <NavLink className={'px-6 py-1 rounded-xl'} to={'/'}>Home</NavLink>
-        <NavLink className={'px-6 py-1 rounded-xl'} to={'/all-scholarships'}>All Scholarship</NavLink>
-        <NavLink className={'px-6 py-1 rounded-xl'} to={'/dashboard'}>Dashboard</NavLink>
+        <NavLink className={'px-6 py-1 text-[#0c281b] text-base   rounded-xl'} to={'/'}>Home</NavLink>
+        <NavLink className={'px-6 py-1 text-[#0c281b] text-base   rounded-xl'} to={'/all-scholarships'}>All Scholarship</NavLink>
+        <NavLink className={'px-6 py-1 text-[#0c281b] text-base   rounded-xl'} to={'/dashboard'}>Dashboard</NavLink>
     </>
     return (
         <div className='z-50 border-b-2 w-full top-0 sticky'>
-            <div className={`py-2 mx-auto navbar px-10 bg-base-100`}>
+            <div className={`py-3 mx-auto navbar max-w-screen-2xl lg:px-10 bg-base-100`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -40,7 +40,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end relative">
-                    <a href='/login' className="btn">Login</a>
+                    <a href='/register' className="btn">Register</a>
                 </div>
             </div>
         </div>
