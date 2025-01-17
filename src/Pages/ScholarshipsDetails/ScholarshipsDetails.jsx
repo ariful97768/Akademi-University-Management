@@ -26,7 +26,7 @@ const ScholarshipsDetails = () => {
                 </div>
             </div>
             <section className='bg-[#f2f8f1] py-20'>
-                <div className="flex flex-col md:flex-row gap-10 p-6 md:p-14 max-w-5xl mx-auto justify-center items-center border-2 shadow-xl rounded-lg">
+                <div className="flex bg-white flex-col md:flex-row gap-10 p-6 md:p-10 max-w-5xl mx-auto justify-center items-center border-2 shadow-xl rounded-lg">
                     <div className="h-full">
                         <img
                             className=" w-[500px] object-contain rounded-lg"
@@ -44,14 +44,14 @@ const ScholarshipsDetails = () => {
                             <p className='flex items-center gap-2'><MdOutlineAccessTime /> 24-02-2025</p>
                             <p className='flex items-center gap-2'><AiOutlineDollar /> 100 + {'30'} <small className='-mt-2'>{'*charge'}</small></p>
                         </div>
-                        <button className="btn mt-4 transition duration-300 hover:bg-[#7CFF77] hover:text-[#14452F] bg-[#185137] text-white ml-1">Enroll Now</button>
+                        <button className="btn mt-4 transition duration-300 hover:bg-[#7CFF77] hover:text-[#14452F] bg-[#185137] text-white ml-1">Apply Now</button>
                     </div>
                 </div>
-                <div className='max-w-screen-xl mx-auto pt-10'>
+                <div className='max-w-screen-lg mx-auto pt-10'>
                     <div>
-                        <div className='flex'>
-                            <h2 onClick={() => setToggle(true)} className='btn'>Description</h2>
-                            <h2 onClick={() => setToggle(false)} className='btn'>Reviews</h2>
+                        <div className='flex gap-3 p-2 border-2 border-black max-w-max rounded-full'>
+                            <button onClick={() => setToggle(true)} className={`transition duration-300 px-3 py-2 rounded-full ${toggle && 'bg-[#185137] text-white'}`}>Description</button>
+                            <button onClick={() => setToggle(false)} className={`transition duration-300 px-3 py-2 rounded-full ${toggle || 'bg-[#185137] text-white'}`}>Reviews</button>
                         </div>
                     </div>
                     {toggle ? <Description /> : <Review />}
