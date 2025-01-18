@@ -8,7 +8,7 @@ import { TbCategory } from 'react-icons/tb';
 import { AiOutlineDollar } from 'react-icons/ai';
 import Description from './Description';
 import Review from './Review';
-import OtherPageBanner from '../../Components/OtherPageBanner';
+import OtherPageBanner from '../../Hooks/OtherPageBanner';
 const ScholarshipsDetails = () => {
     const [toggle, setToggle] = useState(true)
     return (

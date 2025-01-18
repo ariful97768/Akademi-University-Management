@@ -25,7 +25,7 @@ const ScholarshipsCard = () => {
                 <div className="card-actions relative justify-between">
                     <p className='text-2xl font-bold text-[#14452F]'>${price}</p>
                     <div>
-                        <Link to={`/scholarship-details/${id}`} className='max-w-max max-h-max'>   <button className="btn -translate-x-5 transition-all duration-300 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 hover:bg-[#7CFF77] hover:text-[#14452F] bg-[#185137] text-white font-">View Details</button></Link>
+                        <Link to={`/scholarship-details/${id}`} className='max-w-max max-h-max'>   <button className="btn -translate-x-5 transition-all duration-300 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 hover:bg-[#7CFF77] hover:text-[#14452F] bg-[#185137] text-white">View Details</button></Link>
                         <div className="absolute bottom-4 right-4 flex space-x-1 group-hover:-z-10 group-hover:translate-x-5
                             group-hover:opacity-0
                             transition-all text-lg duration-300">

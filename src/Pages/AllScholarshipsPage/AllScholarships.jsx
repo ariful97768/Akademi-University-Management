@@ -1,6 +1,6 @@
 import React from 'react';
 import ScholarshipsCard from '../HomePage/ScholarshipCard';
-import OtherPageBanner from '../../Components/OtherPageBanner';
+import OtherPageBanner from '../../Hooks/OtherPageBanner';
 import bgImage from '../../assets/pricing-breadcrumb-1.jpg';
 const AllScholarships = () => {
     return (

@@ -9,7 +9,6 @@ import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
 import ScholarshipsDetails from './Pages/ScholarshipsDetails/ScholarshipsDetails';
 import AllScholarships from './Pages/AllScholarshipsPage/AllScholarships';
-import App from './CheckOut/CheckOut';
 
 
 const router = createBrowserRouter([
@@ -36,10 +35,6 @@ const router = createBrowserRouter([
       {
         path: '/scholarship-details/:id',
         element: <ScholarshipsDetails />
-      },
-      {
-        path:'/checkout',
-        element:<App/>
       }
     ]
   },
