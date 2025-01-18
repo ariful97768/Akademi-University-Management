@@ -18,6 +18,9 @@ const Login = () => {
                         <div className="form-control">
                             <input name='password' type="password" placeholder="Password" className="placeholder:text-[#22281E] border-b-2 border-black border-opacity-70 py-3 focus:outline-none placeholder:text-opacity-70" required />
                         </div>
+                        <div>
+                            <h3 className="text-sm py-3">New to this website? <a className="hover:border-b border-black" href="/register">Register now</a></h3>
+                        </div>
                         <div className="form-control mt-6">
                             <button className="btn hover:bg-[#0c7d4a] bg-[#1a583c] text-white text-base">Login</button>
                         </div>
