@@ -8,23 +8,12 @@ import { TbCategory } from 'react-icons/tb';
 import { AiOutlineDollar } from 'react-icons/ai';
 import Description from './Description';
 import Review from './Review';
+import OtherPageBanner from '../../Components/OtherPageBanner';
 const ScholarshipsDetails = () => {
     const [toggle, setToggle] = useState(true)
     return (
         <section>
-            <div
-                style={{
-                    backgroundImage: `url('${scholarshipsBanner}')`,
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                }}
-                className="  w-full"
-            >
-                <div className='bg-[#14452f] bg-opacity-90 '>
-                    <h1 className=' text-6xl font-bold text-white  mx-auto text-center py-24 max-w-screen-sm'>Explore Scholarship Opportunities</h1>
-                </div>
-            </div>
+            <OtherPageBanner image={scholarshipsBanner} heading={'Your Scholarship at a Glance'} />
             <section className='bg-[#f2f8f1] py-20'>
                 <div className="flex bg-white flex-col md:flex-row gap-10 p-6 md:p-10 max-w-5xl mx-auto justify-center items-center border-2 shadow-xl rounded-lg">
                     <div className="h-full">

@@ -1,12 +1,13 @@
 import React from 'react';
 import Banner from './Banner';
-import Cards from './Cards';
+
+import TopScholarships from './TopScholarships';
 
 const Home = () => {
     return (
         <section>
             <Banner />
-            <Cards/>
+            <TopScholarships/>
         </section>
     );
 };
