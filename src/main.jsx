@@ -11,6 +11,7 @@ import ScholarshipsDetails from './Pages/ScholarshipsDetails/ScholarshipsDetails
 import AllScholarships from './Pages/AllScholarshipsPage/AllScholarships';
 import AuthProvider, { AuthContext } from './Context/AuthProvider';
 import { ToastContainer } from 'react-toastify';
+import PrivateRoute from './Context/PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/all-scholarships',
-        element: <AllScholarships />
+        element: <PrivateRoute><AllScholarships /></PrivateRoute>
       },
       {
         path: '/login',
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/scholarship-details/:id',
-        element: <ScholarshipsDetails />
+        element: <PrivateRoute> <ScholarshipsDetails /></PrivateRoute>
       }
     ]
   },
@@ -54,6 +55,6 @@ createRoot(document.getElementById('root')).render(
     <StrictMode>
       <RouterProvider router={router} />
       <ToastContainer />
-    </StrictMode>,
+    </StrictMode>
   </AuthProvider>
 )
