@@ -12,6 +12,7 @@ import AllScholarships from './Pages/AllScholarshipsPage/AllScholarships';
 import AuthProvider, { AuthContext } from './Context/AuthProvider';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './Context/PrivateRoute';
+import App from './Pages/PaymentGateway/PaymentPage';
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register />
       },
+      {
+        path:'/payment',
+        element:<App/>
+      }
 
     ]
   },

@@ -1,20 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ScholarshipsCard from '../HomePage/ScholarshipCard';
 import OtherPageBanner from '../../Hooks/OtherPageBanner';
 import bgImage from '../../assets/pricing-breadcrumb-1.jpg';
 import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const AllScholarships = () => {
-    const data = useLoaderData()
+    const loaderData = useLoaderData()
+    const [data, setData] = useState(loaderData)
+    const [searchCategory, setSearchKey] = useState('')
+
+    const handleSearch = (e) => {
+        const searchQuery = e.target.value.toLowerCase(); // 
+        if (!searchQuery) {
+            setData(loaderData)
+            return
+        }
+        if (!searchCategory) {
+         toast.error("Select a search category before typing!");
+            return;
+        }
+        const newData = loaderData.filter(d =>
+            d[searchCategory]?.toLowerCase().includes(searchQuery)
+        );
+        setData(newData); 
+    };
+
+    console.log(data);
     return (
         <>
             <OtherPageBanner image={bgImage} heading={'Explore Scholarship Opportunities'} />
             <section className='py-20'>
                 <div className='flex gap-3 items-center justify-end max-w-screen-xl mx-auto mb-5'>
-                    <input className='input input-bordered' type="text" placeholder='Search here' name="searchBox" id="" />
-                    <select defaultValue={'Search by category'} className="select select-bordered">
+                    <input onChange={handleSearch} className='input input-bordered' type="text" placeholder='Search here' name="searchBox" id="" />
+                    <select onChange={(e) => setSearchKey(e.target.value)} defaultValue={'Search by category'} className="select select-bordered">
                         <option disabled value={'Search by category'}>Search By category</option>
-                        <option value={'scholarship'}>Scholarship Name</option>
-                        NameNameName                 <option value={'university'}>University Name</option>
+                        <option value={'scholarshipName'}>Scholarship Name</option>
+                        <option value={'universityName'}>University Name</option>
                         <option value={'degree'}>Degree Name</option>
                     </select>
                 </div>
