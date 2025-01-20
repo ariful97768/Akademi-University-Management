@@ -1,22 +1,55 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import ReactStars from "react-rating-stars-component";
-const Review = () => {
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../Context/AuthProvider';
+const Review = ({ review }) => {
+    const { user } = useContext(AuthContext)
+    const [ratings, setRatings] = useState(0)
+    const handleRating = newRating => {
+        setRatings(newRating);
+    }
+    const date = new Date()
+    const handleReview = e => {
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        const data = Object.fromEntries(formData)
+        const newData = { ...data, ratings, image: user.photoURL, date }
+
+        if (!ratings > 0) {
+            toast.error('Please select a minimum rating')
+            return
+        }
+        fetch(`http://localhost:5000/add-review/${review?.postId}`, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' }
+            , body: JSON.stringify(newData)
+        }).then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    toast.success('Review added successfully')
+                }
+
+            })
+        // console.log(date);
+        e.target.reset()
+    }
     return (
         <div className='space-y-3 mt-5'>
-            <div className='space-y-3 my-6'>
+            <form onSubmit={handleReview} className='space-y-3 my-6'>
                 <h2 className='border-b-2 border-[black] max-w-max px-2'>Add Review</h2>
                 <div className='flex gap-5'>
-                    <input placeholder='Name' className='input input-bordered' type="text" name="name" id="" />
+                    <input required defaultValue={user.displayName} placeholder='Name' className='input input-bordered' type="text" name="name" id="" />
                     <ReactStars count={5}
                         size={28}
+                        onChange={handleRating}
                         isHalf={true}
                         activeColor="#ffd700" />
                 </div>
-                <textarea placeholder='Give a review' className='w-full rounded-lg h-20 p-3' name="review" id=""></textarea>
+                <textarea required placeholder='Give a review' className='w-full rounded-lg h-20 p-3' name="review" id=""></textarea>
                 <button className="btn transition duration-300 hover:bg-[#7CFF77] hover:text-[#14452F] bg-[#185137] text-white px-7">Submit</button>
 
-            </div>
+            </form>
             <div className='border-2 p-5 bg-white rounded-xl space-y-3'>
                 <ReactStars count={5}
                     size={28}
