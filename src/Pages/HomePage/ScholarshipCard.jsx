@@ -22,7 +22,7 @@ const ScholarshipsCard = ({ scholarship }) => {
                     <p className='flex items-center text-sm gap-2'><MdOutlineCalendarMonth />{scholarshipPostDate}</p>
                 </div>
             </div>
-            <div className="card-body ">
+            <div className="card-body !p-0 mt-4">
                 <h2 className="font-bold text-2xl text-[#0c281b]">{scholarshipName}</h2>
                 <div className='flex gap-2'>
                     <p className='flex gap-2 items-center text-base w-[50%]'><IoSchoolOutline />{scholarshipCategory}</p>
