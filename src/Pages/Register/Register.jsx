@@ -5,11 +5,12 @@ import auth from "../../../firebase.config";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import googleImg from '../../assets/googleLogo.png'
+import useCreateUser from "../../Hooks/useCreateUser";
 const Register = () => {
     const { setUser, user, register, signInWithGoogle } = useContext(AuthContext)
     const regex = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})');
     const navigate = useNavigate()
-
+    const { createUser, data, error } = useCreateUser()
     // don't let the user come here if he's logged in
     useEffect(() => {
         if (user) {
@@ -18,7 +19,7 @@ const Register = () => {
     }, [user])
 
     // email password signup
-    const handleSubmit =  (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
 
         const formData = new FormData(e.target);
@@ -41,7 +42,10 @@ const Register = () => {
                         updateProfile(auth.currentUser, {
                             displayName: name, photoURL: res?.data?.url
                         })
-                            .then(res => toast.success('Registered successfully'))
+                            .then(res => {
+                                createUser(auth.currentUser)
+                                toast.success('Registered successfully')
+                            })
                         setUser({ user: data.user, displayName: name, photoURL: res.data.url })
                     })
                     .catch(err => {
@@ -64,6 +68,7 @@ const Register = () => {
             .then((userCredential) => {
                 toast.success('User registered successfully');
                 setUser(userCredential.user);
+                createUser(auth.currentUser)
                 navigate('/');
             })
             .catch(err => toast.error('Registration failed. Please try again'))
@@ -89,7 +94,7 @@ const Register = () => {
                             <input name='image' type="file" placeholder="Select your profile photo" className="placeholder:text-[#22281E] border-b-2 border-black border-opacity-70 py-3 focus:outline-none placeholder:text-opacity-70" required />
                         </div>
                         <div>
-                            <h3 className="text-sm py-3">Already have and account? <Link className="hover:border-b border-black"to="/login">Login</Link></h3>
+                            <h3 className="text-sm py-3">Already have and account? <Link className="hover:border-b border-black" to="/login">Login</Link></h3>
                         </div>
                         <div className="flex items-center justify-center ">
                             <p onClick={handleGoogleSignin} className=" btn bg-white border-none shadow-none hover:bg-white max-w-max">

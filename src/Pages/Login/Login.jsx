@@ -3,10 +3,13 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-toastify";
 import googleImg from '../../assets/googleLogo.png'
 import { Link, useNavigate } from "react-router-dom";
+import useCreateUser from "../../Hooks/useCreateUser";
+import auth from "../../../firebase.config";
 const Login = () => {
     const { login, setUser, signInWithGoogle } = useContext(AuthContext)
     const navigate = useNavigate()
-
+    const { createUser, data, error } = useCreateUser()
+    console.log(data, error);
     // email password log in
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -15,10 +18,10 @@ const Login = () => {
         console.log(email, password);
         login(email, password)
             .then(res => {
-                navigate('/');
                 setUser(res.user)
-                console.log(res.user);
+                createUser(auth.currentUser)
                 toast.success('Log in success')
+                navigate('/');
             })
             .catch(err => toast.error('Invalid credentials'))
     }
@@ -29,6 +32,7 @@ const Login = () => {
             .then((userCredential) => {
                 toast.success('User registered successfully');
                 setUser(userCredential.user);
+                createUser(auth.currentUser)
                 navigate('/');
             })
             .catch(err => toast.error('Registration failed. Please try again'))
