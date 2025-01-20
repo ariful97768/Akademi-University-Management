@@ -9,7 +9,10 @@ import { AiOutlineDollar } from 'react-icons/ai';
 import Description from './Description';
 import Review from './Review';
 import OtherPageBanner from '../../Hooks/OtherPageBanner';
+import { useLoaderData } from 'react-router-dom';
 const ScholarshipsDetails = () => {
+    const data= useLoaderData()
+    console.log(data);
     const [toggle, setToggle] = useState(true)
     return (
         <section>
@@ -43,7 +46,7 @@ const ScholarshipsDetails = () => {
                             <button onClick={() => setToggle(false)} className={`transition duration-300 px-3 py-2 rounded-full ${toggle || 'bg-[#185137] text-white'}`}>Reviews</button>
                         </div>
                     </div>
-                    {toggle ? <Description /> : <Review />}
+                    {toggle ? <Description description={data.description} /> : <Review />}
                 </div>
             </section>
         </section>

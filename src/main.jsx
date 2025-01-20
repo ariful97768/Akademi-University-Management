@@ -21,11 +21,18 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />
+        element: <Home />,
+        loader: () => fetch('http://localhost:5000/')
       },
       {
         path: '/all-scholarships',
-        element: <PrivateRoute><AllScholarships /></PrivateRoute>
+        element: <PrivateRoute><AllScholarships /></PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/all-data')
+      },
+      {
+        path: '/scholarship-details/:id',
+        element: <PrivateRoute> <ScholarshipsDetails /></PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/scholarship/${params.id}`)
       },
       {
         path: '/login',
@@ -35,10 +42,7 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register />
       },
-      {
-        path: '/scholarship-details/:id',
-        element: <PrivateRoute> <ScholarshipsDetails /></PrivateRoute>
-      }
+
     ]
   },
   {

@@ -2,7 +2,9 @@ import React from 'react';
 import ScholarshipsCard from '../HomePage/ScholarshipCard';
 import OtherPageBanner from '../../Hooks/OtherPageBanner';
 import bgImage from '../../assets/pricing-breadcrumb-1.jpg';
+import { useLoaderData } from 'react-router-dom';
 const AllScholarships = () => {
+    const data = useLoaderData()
     return (
         <>
             <OtherPageBanner image={bgImage} heading={'Explore Scholarship Opportunities'} />
@@ -17,13 +19,9 @@ const AllScholarships = () => {
                     </select>
                 </div>
                 <div className='grid md:grid-cols-3 sm:grid-cols-2 max-w-screen-2xl mx-auto gap-7 px-10'>
-                    <ScholarshipsCard />
-                    <ScholarshipsCard />
-                    <ScholarshipsCard />
-                    <ScholarshipsCard />
-                    <ScholarshipsCard />
-                    <ScholarshipsCard />
-                    <ScholarshipsCard />
+                    {
+                        data.map(d => <ScholarshipsCard scholarship={d} key={d._id} />)
+                    }
                 </div>
             </section>
         </>
