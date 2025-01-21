@@ -57,10 +57,10 @@ const AllUser = () => {
                             data.map((item) =>
                                 <tr>
                                     <td>
-                                        <h2 className="font-bold text-lg">{user?.displayName}</h2>
+                                        <h2 className="font-bold text-lg">{item?.userName}</h2>
                                     </td>
                                     <td className='text-base'>
-                                        {user.email}
+                                        {item.userEmail}
                                     </td>
                                     <td className='text-base'>
                                         <select onChange={e => handleRole(e, item._id)} name="role" defaultValue={item.role} className='text-center'>
