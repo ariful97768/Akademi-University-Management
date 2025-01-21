@@ -15,10 +15,9 @@ import PrivateRoute from './Context/PrivateRoute';
 import App from './Pages/PaymentGateway/PaymentPage';
 import AddScholarships from './Pages/Dashboard/Admin/AddScholarships';
 import ManageScholarships from './Pages/Dashboard/Admin/ManageScholarships';
-import AdminProfile from './Pages/Dashboard/Admin/Profile';
+import Profile from './Pages/Dashboard/Admin/Profile';
 import ManageApplications from './Pages/Dashboard/Admin/ManageApplications';
 import AllUser from './Pages/Dashboard/Admin/AllUser';
-import Review from './Pages/ScholarshipsDetails/Review';
 import ManageReviews from './Pages/Dashboard/Admin/ManageReviews';
 
 
@@ -59,13 +58,12 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <Dashboard />,
+    element: <PrivateRoute ><Dashboard /></PrivateRoute>,
     children: [
       // admin routes
       {
         path: 'profile',
-        element: <AdminProfile />,
-        loader: () => fetch('http://localhost:5000/')
+        element: <Profile />,
       },
       {
         path: 'add-scholarships',

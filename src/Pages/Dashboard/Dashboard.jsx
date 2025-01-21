@@ -5,7 +5,6 @@ import Moderator from './Moderator/Moderator';
 import { useNavigate } from 'react-router-dom';
 import useRole from '../../Hooks/useRole';
 import { toast } from 'react-toastify';
-import Animation from '../../Components/Animation';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -18,9 +17,6 @@ const Dashboard = () => {
         }
     }, [loader, user, navigate]);
 
-    if (loader) {
-        return <Animation />;
-    }
 
     if (role === 'admin') {
         return <Admin />;

@@ -5,14 +5,14 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { FaBook, FaList, FaUserCircle, FaUsers, } from 'react-icons/fa';
 import useRole from '../../../Hooks/useRole';
 import { FaPenToSquare } from 'react-icons/fa6';
-import { BiCommentEdit, BiSolidCommentDetail } from 'react-icons/bi';
+import { BiSolidCommentDetail } from 'react-icons/bi';
 
 const Admin = () => {
 	const { role } = useRole()
 	return (<>
 		<Navbar />
-		<section className='flex justify-center h-[80vh]'>
-			<aside className='w-[20%] pt-5 px-2 bg-gray-300 h-full'>
+		<section className='flex justify-center'>
+			<aside className='w-[20%] pt-5 px-2  h-[calc(100vh-70px)] bg-gray-300 '>
 				<h1 className='text-4xl font-bold text-center'> Dashboard</h1>
 				<ul className='mt-10 space-y-5 bg-gray-300'>
 					<li>
