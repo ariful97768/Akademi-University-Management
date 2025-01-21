@@ -12,7 +12,8 @@ import { GiNotebook } from 'react-icons/gi';
 import { PiCertificate, PiRanking } from 'react-icons/pi';
 import { BsCashCoin } from 'react-icons/bs';
 const ScholarshipsDetails = () => {
-    const data = useLoaderData()
+    const data = useLoaderData()[0]
+    // const [data, setData] = useState(loaderData)
     console.log(data);
     const { _id, scholarshipName, applicationFees, degree, scholarshipPostDate, universityImage, serviceCharge, universityName, universityCity, universityCountry, scholarshipCategory, subjectCategory, applicationDeadline, universityWorldRank, tuitionFees, postedUserEmail, } = data
     const [toggle, setToggle] = useState(true)
@@ -20,24 +21,6 @@ const ScholarshipsDetails = () => {
         <section>
             <OtherPageBanner image={scholarshipsBanner} heading={'Your Scholarship at a Glance'} />
             <section className='bg-[#f2f8f1] py-20'>
-                {/* 
-                    Scholarship Name, 
-                    University Name,
-                    University image/Logo,
-                    University Country,
-                    University city,
-                    University World rank,
-                    Scholarship category,  
-                    Subject category,
-                    Degree 
-                    Application fees,
-                    Service charge,
-
-                    Tuition fees,(optional),
-                    Application Deadline,
-                    Scholarship post Date,
-                    Posted User Email
-                */}
                 <div className="bg-white max-w-max mx-auto border-2 shadow-xl rounded-lg overflow-hidden  p-10 px-16 gap-10 flex">
                     <div className=" text-center flex flex-col max-w-36  items-center">
                         <img
@@ -67,7 +50,7 @@ const ScholarshipsDetails = () => {
                                     <p className='flex items-center gap-2'><PiCertificate />{degree}</p>
                                     <p className='flex items-center gap-2'>
                                         <IoSchoolOutline />{scholarshipCategory}</p>
-                                    <p className='flex items-center gap-2'><AiOutlineDollar  />{applicationFees + " + " + serviceCharge}<small className='-mt-2 -ml-1'>*service charge</small></p>
+                                    <p className='flex items-center gap-2'><AiOutlineDollar />{applicationFees + " + " + serviceCharge}<small className='-mt-2 -ml-1'>*service charge</small></p>
                                 </div>
 
                             </div>
@@ -87,7 +70,7 @@ const ScholarshipsDetails = () => {
                             <button onClick={() => setToggle(false)} className={`transition duration-300 px-3 py-2 rounded-full ${toggle || 'bg-[#185137] text-white'}`}>Reviews</button>
                         </div>
                     </div>
-                    {toggle ? <Description description={data.description} /> : <Review />}
+                    {toggle ? <Description description={data.description} /> : <Review scholarshipData={data} />}
                 </div>
             </section>
         </section>
