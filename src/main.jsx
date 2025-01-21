@@ -9,10 +9,17 @@ import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
 import ScholarshipsDetails from './Pages/ScholarshipsDetails/ScholarshipsDetails';
 import AllScholarships from './Pages/AllScholarshipsPage/AllScholarships';
-import AuthProvider, { AuthContext } from './Context/AuthProvider';
+import AuthProvider from './Context/AuthProvider';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './Context/PrivateRoute';
 import App from './Pages/PaymentGateway/PaymentPage';
+import AddScholarships from './Pages/Dashboard/Admin/AddScholarships';
+import ManageScholarships from './Pages/Dashboard/Admin/ManageScholarships';
+import AdminProfile from './Pages/Dashboard/Admin/Profile';
+import ManageApplications from './Pages/Dashboard/Admin/ManageApplications';
+import AllUser from './Pages/Dashboard/Admin/AllUser';
+import Review from './Pages/ScholarshipsDetails/Review';
+import ManageReviews from './Pages/Dashboard/Admin/ManageReviews';
 
 
 const router = createBrowserRouter([
@@ -33,7 +40,7 @@ const router = createBrowserRouter([
       {
         path: '/scholarship-details/:id',
         element: <PrivateRoute> <ScholarshipsDetails /></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/scholarship/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/scholarship/${params.id}`)
       },
       {
         path: '/login',
@@ -44,8 +51,8 @@ const router = createBrowserRouter([
         element: <Register />
       },
       {
-        path:'/payment',
-        element:<App/>
+        path: '/payment',
+        element: <App />
       }
 
     ]
@@ -54,6 +61,32 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: <Dashboard />,
     children: [
+      // admin routes
+      {
+        path: 'profile',
+        element: <AdminProfile />,
+        loader: () => fetch('http://localhost:5000/')
+      },
+      {
+        path: 'add-scholarships',
+        element: <AddScholarships />
+      },
+      {
+        path: 'manage-scholarships',
+        element: <ManageScholarships />
+      },
+      {
+        path: 'manage-applications',
+        element: <ManageApplications />
+      },
+      {
+        path: 'manage-users',
+        element: <AllUser />
+      },
+      {
+        path: 'manage-reviews',
+        element: <ManageReviews />
+      }
 
     ]
   }
