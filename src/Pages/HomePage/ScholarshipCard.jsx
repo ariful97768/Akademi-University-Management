@@ -43,6 +43,7 @@ const ScholarshipsCard = ({ scholarship }) => {
                             transition-all text-lg duration-300">
                             <ReactStars
                                 count={5}
+                                edit={false}
                                 size={22}
                                 value={4.5}
                                 isHalf={true}

@@ -6,15 +6,20 @@ import { FaBook, FaList, FaUserCircle, FaUsers, } from 'react-icons/fa';
 import useRole from '../../../Hooks/useRole';
 import { FaPenToSquare } from 'react-icons/fa6';
 import { BiSolidCommentDetail } from 'react-icons/bi';
-
+import dashboardBg from '../../../assets/dashboard-bg.avif';
 const Admin = () => {
 	const { role } = useRole()
 	return (<>
 		<Navbar />
 		<section className='flex justify-center'>
-			<aside className='w-[20%] pt-5 px-2  h-[calc(100vh-70px)] bg-gray-300 '>
-				<h1 className='text-4xl font-bold text-center'> Dashboard</h1>
-				<ul className='mt-10 space-y-5 bg-gray-300'>
+			<aside className='w-[20%] pt-5h-[calc(100vh-70px)]   '>
+				<h1 style={{
+					backgroundImage: `url('${dashboardBg}')`,
+					backgroundSize: 'cover',
+					backgroundRepeat: 'no-repeat',
+					backgroundPosition: 'center',
+				}} className='text-4xl py-5 mb-5 font-bold text-center text-white max-h-max w-full'> Dashboard</h1>
+				<ul className=' space-y-5 px-2  '>
 					<li>
 						<NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="profile">
 							<FaUserCircle />

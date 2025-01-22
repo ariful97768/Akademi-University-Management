@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, useContext } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
@@ -9,7 +9,7 @@ import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
 import ScholarshipsDetails from './Pages/ScholarshipsDetails/ScholarshipsDetails';
 import AllScholarships from './Pages/AllScholarshipsPage/AllScholarships';
-import AuthProvider from './Context/AuthProvider';
+import AuthProvider, { AuthContext } from './Context/AuthProvider';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './Context/PrivateRoute';
 import App from './Pages/PaymentGateway/PaymentPage';

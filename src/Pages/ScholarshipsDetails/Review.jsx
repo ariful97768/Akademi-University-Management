@@ -7,7 +7,7 @@ const Review = ({ scholarshipData }) => {
     const { user } = useContext(AuthContext)
     const [ratings, setRatings] = useState(0)
     const handleRating = newRating => setRatings(newRating);
-
+    console.log(scholarshipData);
     // post review
     const handleReview = e => {
         e.preventDefault()
@@ -15,7 +15,7 @@ const Review = ({ scholarshipData }) => {
         const date = new Date().toLocaleDateString()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
-        const newData = { ...data, userid: user.uid, ratings, image: user.photoURL, date }
+        const newData = { ...data, userid: user.uid, ratings, image: user.photoURL, date, universityName: scholarshipData.universityName, subjectCategory: scholarshipData.subjectCategory }
 
         if (!ratings > 0) {
             toast.error('Please select a minimum rating')
