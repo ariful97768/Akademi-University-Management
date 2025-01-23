@@ -1,7 +1,7 @@
 import { StrictMode, useContext } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, RouterProvider, } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider, } from "react-router-dom";
 import Root from './Leyout/Root';
 import Home from './Pages/HomePage/Home';
 import Dashboard from './Pages/Dashboard/Dashboard';
@@ -62,6 +62,11 @@ const router = createBrowserRouter([
     children: [
       // admin routes
       {
+        path:'/dashboard',
+        element: <Navigate replace to={'profile'} />,
+      },
+      {
+        index: true,
         path: 'profile',
         element: <Profile />,
       },

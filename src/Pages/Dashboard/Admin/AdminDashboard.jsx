@@ -12,7 +12,7 @@ const Admin = () => {
 	return (<>
 		<Navbar />
 		<section className='flex justify-center'>
-			<aside className='w-[20%] pt-5h-[calc(100vh-70px)]   '>
+			<aside className='w-[20%] border-r-2 pt-5h-[calc(100vh-70px)]   '>
 				<h1 style={{
 					backgroundImage: `url('${dashboardBg}')`,
 					backgroundSize: 'cover',

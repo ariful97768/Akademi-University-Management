@@ -7,8 +7,8 @@ const Review = ({ scholarshipData }) => {
     const { user } = useContext(AuthContext)
     const [ratings, setRatings] = useState(0)
     const handleRating = newRating => setRatings(newRating);
-    console.log(scholarshipData);
-    // post review
+
+    // post review on the database
     const handleReview = e => {
         e.preventDefault()
 
