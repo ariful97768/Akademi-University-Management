@@ -15,7 +15,7 @@ const Review = ({ scholarshipData }) => {
         const date = new Date().toLocaleDateString()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
-        const newData = { ...data, userid: user.uid, ratings, image: user.photoURL, date, universityName: scholarshipData.universityName, subjectCategory: scholarshipData.subjectCategory }
+        const newData = { ...data, userid: user.uid, ratings, image: user.photoURL, date, universityName: scholarshipData.universityName, subjectCategory: scholarshipData.subjectCategory,scholarshipName: scholarshipData.scholarshipName }
 
         if (!ratings > 0) {
             toast.error('Please select a minimum rating')

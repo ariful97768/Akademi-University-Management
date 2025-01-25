@@ -12,7 +12,6 @@ const Profile = () => {
             .then(data => setProfile(data))
             .catch(err => toast.error('Profile loading failed'))
     }, [user?.email])
-    console.log(user);
     return (
         <section className='bg-[#f2f8f1] h-full py-14'>
             <div className='max-w-screen-lg mx-auto'>

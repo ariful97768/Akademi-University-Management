@@ -19,6 +19,10 @@ import Profile from './Pages/Dashboard/Admin/Profile';
 import ManageApplications from './Pages/Dashboard/Admin/ManageApplications';
 import AllUser from './Pages/Dashboard/Admin/AllUser';
 import ManageReviews from './Pages/Dashboard/Admin/ManageReviews';
+import AdminRoute from './Context/AdminRoute';
+import AuthorizedRoute from './Context/AuthorizedRoute';
+import MyApplication from './Pages/Dashboard/User/MyApplication';
+import MyReviews from './Pages/Dashboard/User/MyReviews';
 
 
 const router = createBrowserRouter([
@@ -62,7 +66,7 @@ const router = createBrowserRouter([
     children: [
       // admin routes
       {
-        path:'/dashboard',
+        path: '/dashboard',
         element: <Navigate replace to={'profile'} />,
       },
       {
@@ -72,23 +76,32 @@ const router = createBrowserRouter([
       },
       {
         path: 'add-scholarships',
-        element: <AddScholarships />
+        element: <AuthorizedRoute><AddScholarships /></AuthorizedRoute>
       },
       {
         path: 'manage-scholarships',
-        element: <ManageScholarships />
+        element: <AuthorizedRoute><ManageScholarships /></AuthorizedRoute>
       },
       {
         path: 'manage-applications',
-        element: <ManageApplications />
+        element: <AuthorizedRoute><ManageApplications /></AuthorizedRoute>
       },
       {
         path: 'manage-users',
-        element: <AllUser />
+        element: <AdminRoute> <AllUser /></AdminRoute>
       },
       {
         path: 'manage-reviews',
-        element: <ManageReviews />
+        element: <AuthorizedRoute><ManageReviews /></AuthorizedRoute>
+      },
+      {
+        path: 'my-application/:id',
+        element: <MyApplication />
+      },
+      {
+        path: 'my-reviews/:id',
+        element: <MyReviews />,
+        loader: ({ params }) => fetch(`http://localhost:5000/my-review/${params.id}`)
       }
 
     ]
