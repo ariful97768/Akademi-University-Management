@@ -13,8 +13,8 @@ const AddScholarships = () => {
         const year = new Date(new Date()).getFullYear()
         const newDate = (`${month} ${day}, ${year}`);
 
-        const today= new Date()
-        const deadline= new Date(data.applicationDeadline)
+        const today = new Date()
+        const deadline = new Date(data.applicationDeadline)
         if (today > deadline) {
             toast.error('Please select a valid date')
             return;
@@ -28,7 +28,7 @@ const AddScholarships = () => {
             body: imageFile,
         }).then(res => res.json())
             .then(res => {
-                const newData = { ...data, universityImage: res.data.url, scholarshipPostDate: newDate, postedUserEmail: user.email }
+                const newData = { ...data, applicationFees: parseInt(data.applicationFees), serviceCharge: parseInt(data.serviceCharge), tuitionFees: parseInt(data.tuitionFees), universityImage: res.data.url, universityWorldRank: parseInt(data.universityWorldRank), scholarshipPostDate: newDate, postedUserEmail: user.email }
                 fetch(`http://localhost:5000/add-scholarship?email=${user?.email}`, {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
@@ -37,12 +37,13 @@ const AddScholarships = () => {
                     .then(newData => {
                         if (newData.insertedId) {
                             toast.success('Scholarship added successfully')
+                            e.target.reset()
                         }
                     })
                     .catch(err => toast.error('Failed to add scholarship Data'))
             })
             .catch(err => toast.error('Failed to upload image. Please try again later'))
-        e.target.reset()
+
     }
     return (
         <section className='bg-[#f2f8f1] h-full py-14'>
@@ -127,7 +128,6 @@ const AddScholarships = () => {
                                 </div>
                                 <input name='applicationFees' required type="number" placeholder="Type here" className="input input-bordered w-[300px]" />
                             </label>
-
                         </div>
                         <div className='flex flex-col gap-5'>
                             <label className="form-control w-[300px]">

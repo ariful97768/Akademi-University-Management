@@ -55,7 +55,7 @@ const AllUser = () => {
                         {/* row 1 */}
                         {
                             data.map((item) =>
-                                <tr>
+                                <tr key={item._id}>
                                     <td>
                                         <h2 className="font-bold text-lg">{item?.userName}</h2>
                                     </td>
