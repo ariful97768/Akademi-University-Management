@@ -67,7 +67,7 @@ const router = createBrowserRouter([
       {
         index: true,
         path: 'profile',
-        element: <Profile />,
+        element: <PrivateRoute><Profile /></PrivateRoute>,
       },
       {
         path: 'add-scholarships',
@@ -92,11 +92,11 @@ const router = createBrowserRouter([
       // user route
       {
         path: 'my-application/:id',
-        element: <MyApplication />
+        element: <PrivateRoute><MyApplication /></PrivateRoute>
       },
       {
         path: 'my-reviews/:id',
-        element: <MyReviews />,
+        element: <PrivateRoute><MyReviews /></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/my-review/${params.id}`)
       }
 

@@ -42,7 +42,7 @@ const ScholarshipsDetails = () => {
             body: imageFile,
         }).then(res => res.json())
             .then(res => {
-                const applicationData = { ...data, image: res.data.url, userName: user.displayName, userEmail: user.email, userId, scholarshipId: _id, appliedData: new Date().toDateString().split(' ').slice(1).join('-') }
+                const applicationData = { ...data, applicationFees, serviceCharge, status: 'Pending', feedback: 'None', image: res.data.url, userName: user.displayName, userEmail: user.email, userId, scholarshipId: _id, appliedData: new Date().toDateString().split(' ').slice(1).join('-'), scholarshipName }
 
                 fetch(`http://localhost:5000/add-application`, {
                     method: 'POST',
@@ -172,13 +172,13 @@ const ScholarshipsDetails = () => {
                             <div className="label">
                                 <span className="label-text">HSC result <span className='text-red-600'>*</span></span>
                             </div>
-                            <input name='hscResult' required type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                            <input name='hscResult' min={1} max={5} step={0.01} required type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                         </label>
                         <label className="form-control w-full max-w-xs">
                             <div className="label">
                                 <span className="label-text">SSC result <span className='text-red-600'>*</span></span>
                             </div>
-                            <input name='sscResult' required type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                            <input name='sscResult' min={1} max={5} step={0.01} required type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                         </label>
                     </div>
                     <div className="flex gap-5 justify-center">
@@ -228,9 +228,9 @@ const ScholarshipsDetails = () => {
                         </label>
                         <label data-tip='Read Only' className="tooltip tooltip-error hover:tooltip-open form-control w-full max-w-xs">
                             <div className="label">
-                                <span className="label-text">University Country <span className='text-red-600'>*</span></span>
+                                <span className="label-text">University address <span className='text-red-600'>*</span></span>
                             </div>
-                            <input required name='universityCountry' value={universityCountry} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                            <input required name='universityAddress' value={universityCity + ", " + universityCountry} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                         </label>
                     </div>
                     <div className="flex justify-center items-center gap-5 !mt-7">
