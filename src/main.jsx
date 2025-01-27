@@ -1,4 +1,4 @@
-import { StrictMode, useContext } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, Navigate, RouterProvider, } from "react-router-dom";
@@ -9,10 +9,9 @@ import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
 import ScholarshipsDetails from './Pages/ScholarshipsDetails/ScholarshipsDetails';
 import AllScholarships from './Pages/AllScholarshipsPage/AllScholarships';
-import AuthProvider, { AuthContext } from './Context/AuthProvider';
+import AuthProvider from './Context/AuthProvider';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './Context/PrivateRoute';
-import App from './Pages/PaymentGateway/PaymentPage';
 import AddScholarships from './Pages/Dashboard/Admin/AddScholarships';
 import ManageScholarships from './Pages/Dashboard/Admin/ManageScholarships';
 import Profile from './Pages/Dashboard/Admin/Profile';
@@ -52,10 +51,6 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />
-      },
-      {
-        path: '/payment',
-        element: <App />
       }
 
     ]
@@ -88,12 +83,13 @@ const router = createBrowserRouter([
       },
       {
         path: 'manage-users',
-        element: <AdminRoute> <AllUser /></AdminRoute>
+        element: <AdminRoute><AllUser /></AdminRoute>
       },
       {
         path: 'manage-reviews',
         element: <AuthorizedRoute><ManageReviews /></AuthorizedRoute>
       },
+      // user route
       {
         path: 'my-application/:id',
         element: <MyApplication />

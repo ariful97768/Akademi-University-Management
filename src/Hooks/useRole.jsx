@@ -6,13 +6,14 @@ const useRole = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null)
     const { user, loader } = useContext(AuthContext);
-
+    const [userId, setUserId] = useState(null)
     useEffect(() => {
         if (user?.email) {
             fetch(`http://localhost:5000/users/${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setRole(data.role)
+                    setUserId(data._id)
                     setLoading(false)
                 })
                 .catch(err => {
@@ -22,7 +23,7 @@ const useRole = () => {
         }
     }, [user?.email]);
 
-    return { user, loader, role, loading, error };
+    return { user, userId, loader, role, loading, error };
 };
 
 export default useRole;

@@ -59,7 +59,7 @@ const Register = () => {
                         console.log(err);
                     })
             })
-            .catch(err => console.log(err))
+            .catch(err => toast.error('Unexpected error happened. Please try again!'))
     }
 
     // google signup
