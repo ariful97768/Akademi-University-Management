@@ -22,6 +22,7 @@ import AdminRoute from './Context/AdminRoute';
 import AuthorizedRoute from './Context/AuthorizedRoute';
 import MyApplication from './Pages/Dashboard/User/MyApplication';
 import MyReviews from './Pages/Dashboard/User/MyReviews';
+import Charts from './Pages/Dashboard/Admin/Charts';
 
 
 const router = createBrowserRouter([
@@ -88,6 +89,11 @@ const router = createBrowserRouter([
       {
         path: 'manage-reviews',
         element: <AuthorizedRoute><ManageReviews /></AuthorizedRoute>
+      },
+      {
+        path: 'analytics',
+        element: <AdminRoute><Charts /></AdminRoute>,
+        loader: () => fetch('http://localhost:5000/all-collections-data')
       },
       // user route
       {

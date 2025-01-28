@@ -7,6 +7,7 @@ import useRole from '../../../Hooks/useRole';
 import { FaPenToSquare } from 'react-icons/fa6';
 import { BiSolidCommentDetail } from 'react-icons/bi';
 import dashboardBg from '../../../assets/dashboard-bg.avif';
+import { RiBarChartBoxFill } from 'react-icons/ri';
 const Admin = () => {
 	const { role } = useRole()
 	return (<>
@@ -49,6 +50,11 @@ const Admin = () => {
 						<NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="manage-reviews">
 							<BiSolidCommentDetail />
 							Reviews</NavLink>
+					</li>
+					<li>
+						<NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="analytics">
+							<RiBarChartBoxFill />
+							Analytics</NavLink>
 					</li>
 				</ul>
 			</aside>
