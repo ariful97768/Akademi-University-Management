@@ -9,7 +9,7 @@ const MyReviews = () => {
     const loaderData = useLoaderData()
     const [data, setData] = useState(loaderData)
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete-review/${id}`, {
+        fetch(`https://akademi-university-project.vercel.app/delete-review/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -29,7 +29,7 @@ const MyReviews = () => {
         e.preventDefault()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
-        fetch(`http://localhost:5000/update-review/${id}`, {
+        fetch(`https://akademi-university-project.vercel.app/update-review/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

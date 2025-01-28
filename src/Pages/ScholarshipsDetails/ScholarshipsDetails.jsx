@@ -42,9 +42,9 @@ const ScholarshipsDetails = () => {
             body: imageFile,
         }).then(res => res.json())
             .then(res => {
-                const applicationData = { ...data, applicationFees, serviceCharge, status: 'Pending', feedback: 'None', image: res.data.url, userName: user.displayName, userEmail: user.email, userId, scholarshipId: _id, appliedData: new Date().toDateString().split(' ').slice(1).join('-'), scholarshipName }
+                const applicationData = { ...data, applicationFees, serviceCharge, applicationDeadline: new Date(applicationDeadline).toISOString(), status: 'Pending', feedback: 'None', image: res.data.url, userName: user.displayName, userEmail: user.email, userId, scholarshipId: _id, appliedData: new Date().toISOString(), scholarshipName }
 
-                fetch(`http://localhost:5000/add-application`, {
+                fetch(`https://akademi-university-project.vercel.app/add-application`, {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(applicationData)

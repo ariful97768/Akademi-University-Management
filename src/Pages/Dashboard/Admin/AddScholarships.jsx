@@ -29,7 +29,7 @@ const AddScholarships = () => {
         }).then(res => res.json())
             .then(res => {
                 const newData = { ...data, applicationFees: parseInt(data.applicationFees), serviceCharge: parseInt(data.serviceCharge), tuitionFees: parseInt(data.tuitionFees), universityImage: res.data.url, universityWorldRank: parseInt(data.universityWorldRank), scholarshipPostDate: newDate, postedUserEmail: user.email }
-                fetch(`http://localhost:5000/add-scholarship?email=${user?.email}`, {
+                fetch(`https://akademi-university-project.vercel.app/add-scholarship?email=${user?.email}`, {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(newData)

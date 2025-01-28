@@ -8,7 +8,7 @@ const PaymentForm = ({ price, setPaymentSuccess }) => {
   const [clientSecret, setClientSecret] = useState(null)
   const [newIntent, setNewIntent] = useState(true)
   useEffect(() => {
-    fetch(`http://localhost:5000/create-payment-intent`, {
+    fetch(`https://akademi-university-project.vercel.app/create-payment-intent`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

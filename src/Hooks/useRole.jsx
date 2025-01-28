@@ -9,7 +9,7 @@ const useRole = () => {
     const [userId, setUserId] = useState(null)
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/users/${user.email}`)
+            fetch(`https://akademi-university-project.vercel.app/users/${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setRole(data.role)

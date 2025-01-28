@@ -21,7 +21,7 @@ const Review = ({ scholarshipData }) => {
     //         toast.error('Please select a minimum rating')
     //         return
     //     }
-    //     fetch(`http://localhost:5000/add-review/${scholarshipData._id}`, {
+    //     fetch(`https://akademi-university-project.vercel.app/add-review/${scholarshipData._id}`, {
     //         method: 'POST',
     //         headers: { 'content-type': 'application/json' }
     //         , body: JSON.stringify(newData)

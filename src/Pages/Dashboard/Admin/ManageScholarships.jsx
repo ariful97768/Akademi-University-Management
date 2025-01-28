@@ -9,14 +9,14 @@ const ManageScholarships = () => {
   const [refetch, setRefetch] = useState(false)
   const [data, setData] = useState([])
   useEffect(() => {
-    fetch(`http://localhost:5000/all-data`)
+    fetch(`https://akademi-university-project.vercel.app/all-data`)
       .then(res => res.json())
       .then(data => setData(data))
       .catch(err => toast.error('Failed to fetch scholarship data'))
   }, [refetch])
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/delete-scholarship/${id}?email=${user?.email}`, {
+    fetch(`https://akademi-university-project.vercel.app/delete-scholarship/${id}?email=${user?.email}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -48,7 +48,7 @@ const ManageScholarships = () => {
       body: imageFile,
     }).then(res => res.json())
       .then(res => {
-        fetch(`http://localhost:5000/update-scholarship/${id}?email=${user?.email}`, {
+        fetch(`https://akademi-university-project.vercel.app/update-scholarship/${id}?email=${user?.email}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json'

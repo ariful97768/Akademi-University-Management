@@ -7,14 +7,14 @@ const ManageReviews = () => {
     const { user } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/all-reviews?email=${user.email}`)
+        fetch(`https://akademi-university-project.vercel.app/all-reviews?email=${user.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
             .catch(err => toast.error('Something went wrong'))
     }, [user])
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/delete-review/${id}?email=${user.email}`, {
+        fetch(`https://akademi-university-project.vercel.app/delete-review/${id}?email=${user.email}`, {
             method: 'DELETE'
         }).then(res => res.json())
             .then(data => {

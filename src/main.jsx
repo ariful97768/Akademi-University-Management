@@ -32,17 +32,17 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        loader: () => fetch('http://localhost:5000/')
+        loader: () => fetch('https://akademi-university-project.vercel.app/')
       },
       {
         path: '/all-scholarships',
         element: <PrivateRoute><AllScholarships /></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/all-data')
+        loader: () => fetch('https://akademi-university-project.vercel.app/all-data')
       },
       {
         path: '/scholarship-details/:id',
         element: <PrivateRoute> <ScholarshipsDetails /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/scholarship/${params.id}`)
+        loader: ({ params }) => fetch(`https://akademi-university-project.vercel.app/scholarship/${params.id}`)
       },
       {
         path: '/login',
@@ -97,7 +97,7 @@ const router = createBrowserRouter([
       {
         path: 'my-reviews/:id',
         element: <PrivateRoute><MyReviews /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/my-review/${params.id}`)
+        loader: ({ params }) => fetch(`https://akademi-university-project.vercel.app/my-review/${params.id}`)
       }
 
     ]

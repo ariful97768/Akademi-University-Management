@@ -6,7 +6,7 @@ const AllUser = () => {
     const { user } = useContext(AuthContext)
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/all-users/?email=${user?.email}`)
+        fetch(`https://akademi-university-project.vercel.app/all-users/?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setData(data)
@@ -15,7 +15,7 @@ const AllUser = () => {
     }, [user])
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/delete-user/${id}?email=${user?.email}`, {
+        fetch(`https://akademi-university-project.vercel.app/delete-user/${id}?email=${user?.email}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -28,7 +28,7 @@ const AllUser = () => {
     const handleRole = (e, id) => {
 
         console.log(e.target.value, id);
-        fetch(`http://localhost:5000/update-role/${id}?role=${e.target.value}&email=${user?.email}&`, {
+        fetch(`https://akademi-university-project.vercel.app/update-role/${id}?role=${e.target.value}&email=${user?.email}&`, {
             method: 'PATCH'
         })
             .then(res => res.json())

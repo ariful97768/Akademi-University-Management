@@ -15,7 +15,7 @@ const MyApplication = () => {
 
     useEffect(() => {
         if (!loading && userId) {
-            fetch(`http://localhost:5000/my-application?userId=${userId}`)
+            fetch(`https://akademi-university-project.vercel.app/my-application?userId=${userId}`)
                 .then(res => res.json())
                 .then(res => setData(res))
                 .catch(err => {
@@ -26,7 +26,7 @@ const MyApplication = () => {
     }, [loading, userId, refetch])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete-application/${id}`, {
+        fetch(`https://akademi-university-project.vercel.app/delete-application/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -51,7 +51,7 @@ const MyApplication = () => {
             body: imageFile,
         }).then(res => res.json())
             .then(res => {
-                fetch(`http://localhost:5000/update-application/${modalData?._id}`, {
+                fetch(`https://akademi-university-project.vercel.app/update-application/${modalData?._id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
@@ -74,8 +74,6 @@ const MyApplication = () => {
     }
 
     const handleReview = (e) => {
-        console.log('scholarship-id', modalData.scholarshipId);
-        console.log('modal-Id', modalData._id);
         e.preventDefault()
         if (!ratings > 0) {
             toast.error('Please select a minimum rating')
@@ -86,7 +84,7 @@ const MyApplication = () => {
         const date = new Date().toDateString().split(' ').slice(1).join('-')
         const newData = { ...data, userid: user.uid, image: user.photoURL, ratings, date, universityName: modalData.universityName, subjectCategory: modalData.subjectCategory, scholarshipName: modalData.scholarshipName, };
 
-        fetch(`http://localhost:5000/add-review/${modalData.scholarshipId}`, {
+        fetch(`https://akademi-university-project.vercel.app/add-review/${modalData.scholarshipId}`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newData)
@@ -102,9 +100,6 @@ const MyApplication = () => {
         e.target.reset()
 
     }
-
-
-    console.log(modalData.scholarshipId);
 
 
     return (
