@@ -73,7 +73,9 @@ const MyApplication = () => {
             .catch(err => toast.error('Something bad happened while uploading the image. Please try again!'))
     }
 
-    const handleReview = (e, id) => {
+    const handleReview = (e) => {
+        console.log('scholarship-id', modalData.scholarshipId);
+        console.log('modal-Id', modalData._id);
         e.preventDefault()
         if (!ratings > 0) {
             toast.error('Please select a minimum rating')
@@ -82,11 +84,12 @@ const MyApplication = () => {
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
         const date = new Date().toDateString().split(' ').slice(1).join('-')
-        const newData = { ...data, userid: user.uid, image: user.photoURL, ratings, date, universityName: modalData.universityName, subjectCategory: modalData.subjectCategory, scholarshipName: modalData.scholarshipName };
-        fetch(`http://localhost:5000/add-review/${modalData._id}`, {
+        const newData = { ...data, userid: user.uid, image: user.photoURL, ratings, date, universityName: modalData.universityName, subjectCategory: modalData.subjectCategory, scholarshipName: modalData.scholarshipName, };
+
+        fetch(`http://localhost:5000/add-review/${modalData.scholarshipId}`, {
             method: 'POST',
-            headers: { 'content-type': 'application/json' }
-            , body: JSON.stringify(newData)
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(newData)
         }).then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
@@ -95,8 +98,14 @@ const MyApplication = () => {
                 document.getElementById('my_modal_4').checked = false
             })
             .catch(err => toast.error('Something went wrong'))
+        console.log(newData);
         e.target.reset()
+
     }
+
+
+    console.log(modalData.scholarshipId);
+
 
     return (
         <section className='bg-[#f2f8f1] h-full py-14'>
@@ -126,11 +135,11 @@ const MyApplication = () => {
                                     <td className='border'>{item.degree}</td>
                                     <td className='border'>{item.applicationFees}</td>
                                     <td className='border'>{item.serviceCharge}</td>
-                                    <td className='border'>{item.status}</td>
+                                    <td>{item.status === 'Pending' ? <span className='text-white bg-yellow-500 px-2 py-1 rounded-xl'>{item.status}</span> : item.status === 'Rejected' ? <span className='text-white bg-red-500 px-2 py-1 rounded-xl'>{item.status}</span> : item.status === 'Approved' && <span className='text-white bg-green-500 px-2 py-1 rounded-xl'>{item.status}</span>}</td>
                                     <td className='border flex'>
                                         <label onClick={() => setModalData(item)} htmlFor='my_modal_4' className="btn btn-ghost btn-xs"><BiSolidMessageEdit /></label>
-                                        <label onClick={() => setModalData(item)} htmlFor={'my_modal_9'} className="btn btn-ghost btn-xs"><FaPen /></label>
-                                        <button onClick={() => handleDelete(item._id)} className="btn btn-ghost text-red-600 btn-xs"><FcCancel /></button>
+                                        <label disabled={item.status !== 'Pending'} onClick={() => setModalData(item)} htmlFor={'my_modal_9'} className={` btn disabled btn-ghost btn-xs`}><FaPen /></label>
+                                        <button onClick={() => handleDelete(item._id)} className={` btn btn-ghost text-red-600 btn-xs`}><FcCancel /></button>
                                     </td>
                                 </tr>
                             </>)
