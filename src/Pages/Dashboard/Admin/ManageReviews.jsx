@@ -25,7 +25,7 @@ const ManageReviews = () => {
                 }
         })
     }
-    console.log(reviews);
+    
     return (
         <section className='bg-[#f2f8f1] h-full  py-5'>
             <div className='grid gap-y-4 justify-center mx-auto grid-cols-3'>

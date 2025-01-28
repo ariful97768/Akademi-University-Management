@@ -20,7 +20,6 @@ const MyApplication = () => {
                 .then(res => setData(res))
                 .catch(err => {
                     toast.error('Something bad happen. Please try again!')
-                    console.log(err)
                 })
         }
     }, [loading, userId, refetch])
@@ -96,7 +95,7 @@ const MyApplication = () => {
                 document.getElementById('my_modal_4').checked = false
             })
             .catch(err => toast.error('Something went wrong'))
-        console.log(newData);
+
         e.target.reset()
 
     }

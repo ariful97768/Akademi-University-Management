@@ -9,13 +9,12 @@ const Login = () => {
     const { login, setUser, signInWithGoogle } = useContext(AuthContext)
     const navigate = useNavigate()
     const { createUser, data, error } = useCreateUser()
-    console.log(data, error);
+
     // email password log in
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
         const { email, password } = Object.fromEntries(formData);
-        console.log(email, password);
         login(email, password)
             .then(res => {
                 setUser(res.user)

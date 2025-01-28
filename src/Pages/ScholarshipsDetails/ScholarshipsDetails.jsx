@@ -23,7 +23,6 @@ const ScholarshipsDetails = () => {
     const data = useLoaderData()[0]
     const [paymentSuccess, setPaymentSuccess] = useState(false)
     const { user, userId } = useRole()
-    console.log(userId);
     const { _id, scholarshipName, applicationFees, degree, scholarshipPostDate, universityImage, serviceCharge, universityName, universityCity, universityCountry, scholarshipCategory, subjectCategory, applicationDeadline, universityWorldRank, tuitionFees, postedUserEmail, } = data
     const [toggle, setToggle] = useState(true)
 
@@ -57,11 +56,10 @@ const ScholarshipsDetails = () => {
                             e.target.reset()
                         }
                     })
-                    .catch(err => console.log(err))
+                    .catch(err => toast.error('Application unsuccessful!'))
             })
             .catch(err => {
                 toast.error('An error occurred while uploading you image. Please try again!')
-                console.log(err);
             })
     }
 

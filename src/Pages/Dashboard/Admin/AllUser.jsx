@@ -27,7 +27,6 @@ const AllUser = () => {
 
     const handleRole = (e, id) => {
 
-        console.log(e.target.value, id);
         fetch(`https://akademi-university-project.vercel.app/update-role/${id}?role=${e.target.value}&email=${user?.email}&`, {
             method: 'PATCH'
         })

@@ -4,6 +4,7 @@ import OtherPageBanner from '../../Hooks/OtherPageBanner';
 import bgImage from '../../assets/pricing-breadcrumb-1.jpg';
 import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { FaArrowLeftLong, FaArrowRight } from 'react-icons/fa6';
 const AllScholarships = () => {
     const loaderData = useLoaderData()
     const [data, setData] = useState(loaderData)
@@ -26,7 +27,16 @@ const AllScholarships = () => {
         setData(newData);
     };
 
-    console.log(data);
+    const itemsPerPage = 9;
+    const [currentPage, setCurrentPage] = useState(1);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentScholarships = data.slice(startIndex, endIndex);
+    const handlePageChange = (page) => {
+        if (page < 1 || page > Math.ceil(data.length / itemsPerPage)) return;
+        setCurrentPage(page);
+    };
+
     return (
         <>
             <OtherPageBanner image={bgImage} heading={'Explore Scholarship Opportunities'} />
@@ -42,11 +52,32 @@ const AllScholarships = () => {
                 </div>
                 <div className='grid md:grid-cols-3 sm:grid-cols-2 max-w-screen-2xl mx-auto gap-7 px-10'>
                     {
-                        data.map(d => <ScholarshipsCard scholarship={d} key={d._id} />)
+                        currentScholarships.map(d => <ScholarshipsCard scholarship={d} key={d._id} />)
                     }
                 </div>
 
                 {isAvailable || <div className='text-3xl py-10 font-bold text-center'>No Scholarships Available</div>}
+
+                <div className='max-w-sm mx-auto mt-14 flex justify-center space-x-5'>
+                    <button className='btn transition duration-300 hover:bg-[#7CFF77] hover:text-[#14452F] bg-[#185137] text-white px-7' onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+                        <FaArrowLeftLong /> Prev
+                    </button>
+
+                    {/* Page numbers */}
+                    {[...Array(Math.ceil(data.length / itemsPerPage))].map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handlePageChange(index + 1)}
+                            style={{ fontWeight: currentPage === index + 1 ? 'bold' : 'normal' }}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+
+                    <button className='btn transition duration-300 hover:bg-[#7CFF77] hover:text-[#14452F] bg-[#185137] text-white px-7' onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === Math.ceil(data.length / itemsPerPage)}>
+                        Next <FaArrowRight />
+                    </button>
+                </div>
             </section>
         </>
     );

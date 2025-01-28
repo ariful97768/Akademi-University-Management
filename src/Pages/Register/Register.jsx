@@ -51,12 +51,9 @@ const Register = () => {
                     .catch(err => {
                         if (err.code === 'auth/email-already-in-use') {
                             toast.error('Email already in use');
-                            console.log('email in use');
                         } else {
-                            console.log('Something went wrong use');
                             toast.error('Something went wrong');
                         }
-                        console.log(err);
                     })
             })
             .catch(err => toast.error('Unexpected error happened. Please try again!'))
