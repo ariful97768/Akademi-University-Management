@@ -71,7 +71,7 @@ const ManageScholarships = () => {
   }
 
   return (
-    <section className='bg-[#f2f8f1] h-full'>
+    <section className='bg-[#f2f8f1] py-14 h-full'>
       <div className="overflow-x-auto">
         <table className="table text-center">
           <thead>

@@ -46,45 +46,45 @@ const AddScholarships = () => {
 
     }
     return (
-        <section className='bg-[#f2f8f1] h-full py-14'>
+        <section className='bg-[#f2f8f1] h-full py-5 md:py-14'>
             <div className='max-w-screen-lg  mx-auto'>
                 <form onSubmit={handleSubmit} className='flex gap-5 flex-col justify-center' action="">
-                    <div className='flex gap-5 justify-center'>
-                        <div className='flex flex-col gap-5'>
+                    <div className='grid justify-center items-center md:grid-cols-2 xl:grid-cols-3 gap-5'>
+                        <div className='flex mx-auto max-w-max flex-col gap-5'>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">Scholarship Title</span>
                                 </div>
                                 <input required name='scholarshipName' type="text" placeholder="Type here" className="input input-bordered w-[300px]" />
                             </label>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">University Name</span>
                                 </div>
                                 <input name='universityName' required type="text" placeholder="Type here" className="input input-bordered w-[300px]" />
                             </label>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">University Logo</span>
                                 </div>
                                 <input name='universityImage' required type="file" placeholder="Type here" className="input py-2 input-bordered w-[300px]" />
                             </label>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">Country</span>
                                 </div>
                                 <input name='universityCountry' required type="text" placeholder="Type here" className="input input-bordered w-[300px]" />
                             </label>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">City</span>
                                 </div>
                                 <input name='universityCity' required type="text" placeholder="Type here" className="input input-bordered w-[300px]" />
                             </label>
                         </div>
-                        <div className='flex flex-col gap-5'>
+                        <div className='flex mx-auto max-w-max  flex-col gap-5'>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">Subject category</span>
                                 </div>
                                 <select defaultValue={'none'} className='input input-bordered' name="subjectCategory" id="">
@@ -95,7 +95,7 @@ const AddScholarships = () => {
                                 </select>
                             </label>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">Scholarship category</span>
                                 </div>
                                 <select defaultValue={'none'} className='input input-bordered' name="scholarshipCategory" id="">
@@ -106,7 +106,7 @@ const AddScholarships = () => {
                                 </select>
                             </label>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">Degree </span>
                                 </div>
                                 <select defaultValue={'none'} className='input input-bordered' name="degree" id="">
@@ -117,39 +117,39 @@ const AddScholarships = () => {
                                 </select>
                             </label>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">Tuition fees</span>
                                 </div>
                                 <input name='tuitionFees' required type="number" placeholder="Type here" className="input input-bordered w-[300px]" />
                             </label>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">Application Fee</span>
                                 </div>
                                 <input name='applicationFees' required type="number" placeholder="Type here" className="input input-bordered w-[300px]" />
                             </label>
                         </div>
-                        <div className='flex flex-col gap-5'>
+                        <div className='flex mx-auto max-w-max flex-col gap-5'>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">Service Charge</span>
                                 </div>
                                 <input name='serviceCharge' required type="number" placeholder="Type here" className="input flex items-center input-bordered w-[300px]" />
                             </label>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">Application Deadline</span>
                                 </div>
                                 <input name='applicationDeadline' required type="date" placeholder="Type here" className="input flex items-center input-bordered w-[300px]" />
                             </label>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">World Rank</span>
                                 </div>
                                 <input name='universityWorldRank' required type="number" placeholder="Type here" className="input input-bordered w-[300px]" />
                             </label>
                             <label className="form-control w-[300px]">
-                                <div className="label">
+                                <div className="label max-w-max">
                                     <span className="label-text">Description</span>
                                 </div><textarea placeholder='Write a description' name="description" className="input p-2 input-bordered w-[300px] h-40" id=""></textarea>
                             </label>

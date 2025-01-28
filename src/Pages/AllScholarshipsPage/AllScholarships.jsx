@@ -50,7 +50,7 @@ const AllScholarships = () => {
                         <option value={'degree'}>Degree Name</option>
                     </select>
                 </div>
-                <div className='grid md:grid-cols-3 sm:grid-cols-2 max-w-screen-2xl mx-auto gap-7 px-10'>
+                <div className='grid lg:grid-cols-3 md:grid-cols-2 max-w-screen-2xl mx-auto gap-7 px-10'>
                     {
                         currentScholarships.map(d => <ScholarshipsCard scholarship={d} key={d._id} />)
                     }

@@ -93,7 +93,7 @@ const router = createBrowserRouter([
       {
         path: 'analytics',
         element: <AdminRoute><Charts /></AdminRoute>,
-        loader: () => fetch('http://localhost:5000/all-collections-data')
+        loader: () => fetch('https://akademi-university-project.vercel.app/all-collections-data')
       },
       // user route
       {

@@ -9,10 +9,10 @@ const Banner = () => {
             ></div>
             <div className='relative pt-20'>
                 <div className='flex z-20 px-10 justify-between w-full'>
-                    <img style={{height:'auto', width: '23vw' }} className='z-20' src={image1} alt="" />
+                    <img style={{height:'auto', width: '23vw' }} className='z-20  hidden md:block ' src={image1} alt="" />
                     <div className='flex  flex-col items-center'>
                         <p className='text-gray-300 z-20  text-center text-sm pb-6'>——— Empowering Ambitions, Enabling Success ———</p>
-                        <h2 className='text-white z-20 text-7xl text-center'>Unlock Your Future with Scholarships</h2>
+                        <h2 className='text-white z-20 text-3xl md:text-5xl xl:text-7xl text-center'>Unlock Your Future with Scholarships</h2>
                         <p className='text-gray-200 z-20 text-center leading-7 pt-8'>Find, apply, and manage your scholarships effortlessly. Whether you're a first-time applicant or a continuing student, our platform guides you every step of the way toward achieving your academic dreams.</p>
                     </div>
                     <img style={{height:'auto', width: '23vw' }} className='z-20 hidden lg:block' src={image2} alt="" />

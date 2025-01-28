@@ -17,32 +17,32 @@ const Moderator = () => {
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
-                }} className='text-4xl py-5 mb-5 font-bold text-center text-white max-h-max w-full'> Dashboard</h1>
+                }} className='text-4xl py-5 mb-5 font-bold text-center hidden md:block text-white max-h-max w-full'> Dashboard</h1>
                 <ul className=' space-y-5 px-2  '>
                     <li>
                         <NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="profile">
                             <FaUserCircle />
-                            Profile</NavLink>
+                            <span className='hidden md:block'>Profile</span></NavLink>
                     </li>
                     <li>
                         <NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="add-scholarships">
                             <FaPenToSquare />
-                            Add Scholarships</NavLink>
+                            <span className='hidden md:block'>Add Scholarships</span></NavLink>
                     </li>
                     <li>
                         <NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="/dashboard/manage-scholarships">
                             <FaList></FaList>
-                            Manage Scholarships</NavLink>
+                            <span className='hidden md:block'>Manage Scholarships</span></NavLink>
                     </li>
                     <li>
                         <NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="/dashboard/manage-applications">
                             <FaBook></FaBook>
-                            Manage Applications</NavLink>
+                            <span className='hidden md:block'>Manage Applications</span></NavLink>
                     </li>
                     <li>
                         <NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="manage-reviews">
                             <BiSolidCommentDetail />
-                            Reviews</NavLink>
+                            <span className='hidden md:block'>Reviews</span></NavLink>
                     </li>
                 </ul>
             </aside>

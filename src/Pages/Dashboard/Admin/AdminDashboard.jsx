@@ -13,48 +13,48 @@ const Admin = () => {
 	return (<>
 		<Navbar />
 		<section className='flex justify-center'>
-			<aside className='w-[20%] border-r-2 pt-5h-[calc(100vh-70px)]   '>
+			<aside className=' w-[20%] border-r-2 pt-5h-[calc(100vh-70px)]   '>
 				<h1 style={{
 					backgroundImage: `url('${dashboardBg}')`,
 					backgroundSize: 'cover',
 					backgroundRepeat: 'no-repeat',
 					backgroundPosition: 'center',
-				}} className='text-4xl py-5 mb-5 font-bold text-center text-white max-h-max w-full'> Dashboard</h1>
+				}} className='hidden md:block md:text-4xl text-2xl py-5 mb-5 font-bold text-center text-white max-h-max w-full'> Dashboard</h1>
 				<ul className=' space-y-5 px-2  '>
 					<li>
 						<NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="profile">
 							<FaUserCircle />
-							Profile</NavLink>
+							<span className='hidden md:block'>Profile</span></NavLink>
 					</li>
 					<li>
 						<NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="add-scholarships">
 							<FaPenToSquare />
-							Add Scholarships</NavLink>
+							<span className='hidden md:block'>Add Scholarships</span></NavLink>
 					</li>
 					<li>
 						<NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="/dashboard/manage-scholarships">
 							<FaList></FaList>
-							Manage Scholarships</NavLink>
+							<span className='hidden md:block'>Manage Scholarships</span></NavLink>
 					</li>
 					<li>
 						<NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="/dashboard/manage-applications">
 							<FaBook></FaBook>
-							Manage Applications</NavLink>
+							<span className='hidden md:block'>Manage Applications</span></NavLink>
 					</li>
 					<li>
 						<NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="/dashboard/manage-users">
 							<FaUsers></FaUsers>
-							All Users</NavLink>
+							<span className='hidden md:block'>All Users</span></NavLink>
 					</li>
 					<li>
 						<NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="manage-reviews">
 							<BiSolidCommentDetail />
-							Reviews</NavLink>
+							<span className='hidden md:block'>Reviews</span></NavLink>
 					</li>
 					<li>
 						<NavLink className='flex py-2 px-5 rounded-full items-center gap-2' to="analytics">
 							<RiBarChartBoxFill />
-							Analytics</NavLink>
+							<span className='hidden md:block'>Analytics</span></NavLink>
 					</li>
 				</ul>
 			</aside>
