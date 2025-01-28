@@ -82,7 +82,7 @@ const ScholarshipsDetails = () => {
                             <h2 className="font-bold text-3xl text-[#0c281b]">{scholarshipName}</h2>
                             <p className='flex text-sm items-center gap-2'><SlCalender />{scholarshipPostDate}</p>
 
-                            <div className='flex justify-between'>
+                            <div className='flex justify-between flex-col md:flex-row'>
                                 <div className='space-y-1'>
                                     <h2 className='text-xl pb-2 pt-3 font-bold'>About the University</h2>
                                     <p className='flex items-center gap-2'><PiRanking />{universityWorldRank}</p>
