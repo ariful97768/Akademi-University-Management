@@ -5,9 +5,9 @@ import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext)
-    const logOut=()=>{
+    const logOut = () => {
         signOutUser()
-        .then(res=>toast.success('Sign Out Successful'))
+            .then(res => toast.success('Sign Out Successful'))
     }
     const links = <>
         <NavLink className={'px-6 py-1 text-[#0c281b] text-base   rounded-xl'} to={'/'}>Home</NavLink>
@@ -47,30 +47,30 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end relative">
-                {
-                    user ?
-                        <div className="flex-none">
-                            <div className="dropdown dropdown-hover dropdown-end">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full">
-                                        <img
-                                            alt={user?.displayName}
-                                            src={user?.photoURL || 'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png'} />
+                    {
+                        user ?
+                            <div className="flex-none">
+                                <div className="dropdown dropdown-hover dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img
+                                                alt={user?.displayName}
+                                                src={user?.photoURL || 'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png'} />
+                                        </div>
                                     </div>
+                                    <ul
+                                        tabIndex={0}
+                                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] pt-3 w-40 p-2 shadow-lg">
+                                        <li className="font-medium"><a>{user?.displayName}</a></li>
+                                        <li onClick={logOut} className="text-red-500 font-medium"><a>Logout</a></li>
+                                    </ul>
                                 </div>
-                                <ul
-                                    tabIndex={0}
-                                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] pt-3 w-40 p-2 shadow-lg">
-                                    <li className="font-medium"><a>{user?.displayName}</a></li>
-                                    <li onClick={logOut} className="text-red-500 font-medium"><a>Logout</a></li>
-                                </ul>
                             </div>
-                        </div>
-                        :
-                        <div className="navbar-end max-w-max lg:flex">
-                            <Link to={'/register'} className="btn  hover:bg-[#0c7d4a] bg-[#1a583c] text-white text-base">Register</Link>
-                        </div>
-                }
+                            :
+                            <div className="navbar-end max-w-max lg:flex">
+                                <Link to={'/register'} className="btn  hover:bg-[#0c7d4a] bg-[#1a583c] text-white text-base">Register</Link>
+                            </div>
+                    }
                 </div>
             </div>
         </div>

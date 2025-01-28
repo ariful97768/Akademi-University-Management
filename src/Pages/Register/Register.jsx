@@ -46,7 +46,7 @@ const Register = () => {
                                 createUser(auth.currentUser)
                                 toast.success('Registered successfully')
                             })
-                        setUser({ user: data.user, displayName: name, photoURL: res.data.url })
+                        setUser({...data.user, email, displayName: name, photoURL: res.data.url })
                     })
                     .catch(err => {
                         if (err.code === 'auth/email-already-in-use') {
