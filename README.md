@@ -1,4 +1,3 @@
-# b10a12-server-client-ariful97768
 # Akademi - Scholarship Management System
 
 Akademi is a web-based Scholarship Management System designed to streamline the application, management, and approval processes for scholarships. Built using the MERN stack (MongoDB, Express.js, React, Node.js), Firebase for authentication, and Vercel for hosting the backend, this platform ensures efficient and secure scholarship management.
@@ -35,3 +34,8 @@ Akademi is a web-based Scholarship Management System designed to streamline the 
 
 ### Payment Integration:
 - Stripe (for future scholarship-related payments).
+
+
+### To log in
+- admin@mail.com Password: Admin123
+- moderator@mail.com Password: Moderator123
