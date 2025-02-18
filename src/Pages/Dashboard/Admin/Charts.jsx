@@ -5,7 +5,6 @@ import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxi
 const Charts = () => {
     const loaderData = useLoaderData()
     const [scholarships, users, reviews, application] = loaderData
-    console.log(loaderData);
     const chartData = [
         { name: 'Scholarships', count: scholarships.length },
         { name: 'Users', count: users.length },

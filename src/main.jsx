@@ -23,6 +23,7 @@ import AuthorizedRoute from './Context/AuthorizedRoute';
 import MyApplication from './Pages/Dashboard/User/MyApplication';
 import MyReviews from './Pages/Dashboard/User/MyReviews';
 import Charts from './Pages/Dashboard/Admin/Charts';
+import ErrorPage from './ErrorPage';
 
 
 const router = createBrowserRouter([
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
       }
 
     ]
+  },
+  {
+    path: '*',
+    element: <ErrorPage></ErrorPage>
   }
 ]);
 
