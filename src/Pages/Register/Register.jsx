@@ -72,10 +72,10 @@ const Register = () => {
     }
     return (
         <div>
-            <div className="flex py-20 justify-center items-center bg-base-200 ">
+            <div className="flex py-10 justify-center items-center bg-base-200 ">
                 <div className="p-16 card bg-base-100 w-full max-w-xl shrink-0 shadow-2xl">
-                    <div>
-                        <h2 className='text-center text-5xl pb-6'>Create new account</h2>
+                    <div className="text-center pb-6 space-y-2">
+                        <h2 className='text-5xl '>Create new account</h2>
                     </div>
                     <form onSubmit={handleSubmit} className="card-body p-0">
                         <div className="form-control">
@@ -101,6 +101,7 @@ const Register = () => {
                         <div className="form-control mt-5">
                             <button className="btn hover:bg-[#0c7d4a] bg-[#1a583c] text-white text-base">Register</button>
                         </div>
+                        <p className="label-text mt-1 md:mt-3">Tip: Head to the login page to sign in as an administrator.</p>
                     </form>
                 </div>
             </div>

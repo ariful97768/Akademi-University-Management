@@ -3,13 +3,15 @@ import Banner from './Banner';
 
 import TopScholarships from './TopScholarships';
 import { useLoaderData } from 'react-router-dom';
+import Contact from './Contact';
 
 const Home = () => {
-    const data= useLoaderData()
+    const data = useLoaderData()
     return (
         <section>
             <Banner />
-            <TopScholarships data={data}/>
+            <TopScholarships data={data} />
+            <Contact />
         </section>
     );
 };

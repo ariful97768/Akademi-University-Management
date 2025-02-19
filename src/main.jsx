@@ -38,12 +38,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/all-scholarships',
-        element: <PrivateRoute><AllScholarships /></PrivateRoute>,
+        element: <AllScholarships />,
         loader: () => fetch('https://akademi-university-project.vercel.app/all-data')
       },
       {
         path: '/scholarship-details/:id',
-        element: <PrivateRoute> <ScholarshipsDetails /></PrivateRoute>,
+        element: <ScholarshipsDetails />,
         loader: ({ params }) => fetch(`https://akademi-university-project.vercel.app/scholarship/${params.id}`)
       },
       {

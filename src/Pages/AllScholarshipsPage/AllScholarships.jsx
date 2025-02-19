@@ -40,7 +40,7 @@ const AllScholarships = () => {
     return (
         <>
             <OtherPageBanner image={bgImage} heading={'Explore Scholarship Opportunities'} />
-            <section className='py-20'>
+            <section className='py-20 bg-[#f2f8f1]'>
                 <div className='flex gap-3 items-center justify-end max-w-screen-xl mx-auto mb-5'>
                     <input onChange={handleSearch} className='input input-bordered' type="text" placeholder='Search here' name="searchBox" id="" />
                     <select onChange={(e) => setSearchKey(e.target.value)} defaultValue={'Search by category'} className="select select-bordered">
