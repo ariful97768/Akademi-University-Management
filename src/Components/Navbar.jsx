@@ -15,7 +15,7 @@ const Navbar = () => {
         <NavLink className={'px-6 py-1 text-[#0c281b] text-base   rounded-xl'} to={'/dashboard'}>Dashboard</NavLink>
     </>
     return (
-        <div className='z-50 border-b-2 w-full top-0 sticky'>
+        <div className='z-50 w-full top-0 bg-white sticky'>
             <div className={`py-3 mx-auto navbar max-w-screen-2xl lg:px-10 bg-base-100`}>
                 <div className="navbar-start">
                     <div className="dropdown">
