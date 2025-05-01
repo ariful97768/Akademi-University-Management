@@ -11,35 +11,40 @@ const Reviews = () => {
             name: "John Doe",
             university: "Harvard University",
             review: "This scholarship platform helped me find the perfect funding opportunity for my studies. The application process was smooth and I received my scholarship within weeks!",
-            rating: 5
+            rating: 5,
+            image: "https://i.pravatar.cc/150?" // Placeholder image URL
         },
         {
             id: 2,
             name: "Sarah Johnson",
             university: "Stanford University",
             review: "I was struggling to find scholarships that matched my profile until I discovered this platform. The personalized recommendations were spot on!",
-            rating: 4
+            rating: 4,
+            image: "https://i.pravatar.cc/150?"
         },
         {
             id: 3,
             name: "Michael Chen",
             university: "MIT",
             review: "The scholarship application process can be overwhelming, but this platform made it so much easier. I'm grateful for their support throughout my journey.",
-            rating: 5
+            rating: 5,
+            image: "https://i.pravatar.cc/150?"
         },
         {
             id: 4,
             name: "Emily Wilson",
             university: "Yale University",
             review: "The platform's user-friendly interface and comprehensive scholarship database made my search process incredibly efficient. Highly recommended!",
-            rating: 5
+            rating: 5,
+            image: "https://i.pravatar.cc/150?"
         },
         {
             id: 5,
             name: "David Kim",
             university: "Princeton University",
             review: "Thanks to this platform, I found multiple scholarships that perfectly matched my academic profile. The application tracking feature was particularly helpful.",
-            rating: 4
+            rating: 4,
+            image: "https://i.pravatar.cc/150?"
         }
     ];
 
@@ -97,7 +102,7 @@ const Reviews = () => {
                             <SwiperSlide key={review.id}>
                                 <div className="review-card bg-white p-6 rounded-lg shadow-md">
                                     <div className="flex items-center mb-4">
-                                        <div className="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+                                        <img src={review.image+'img='+review.id} className="w-12 h-12 rounded-full mr-4" />
                                         <div>
                                             <h3 className="font-semibold">{review.name}</h3>
                                             <p className="text-sm text-gray-600">{review.university}</p>

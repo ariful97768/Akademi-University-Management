@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import patternBg from '../assets/pattern-bg-footer.png';
+import patternBg from '../assets/Pattern-Bg.png';
 
 const Footer = () => {
     return (
-        <footer className="relative">
+        <footer className="relative bg-[#0b3824]">
             {/* Background Pattern */}
             <div 
                 className="absolute inset-0"
@@ -13,14 +13,14 @@ const Footer = () => {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
-                    // opacity: 0.1
+                    opacity: 0.05
                 }}
             />
             
             {/* Content */}
-            <div className="relative z-10 bg-[#0b3824] text-white">
+            <div className="relative z-10  text-white">
                 <div className="container mx-auto px-4 py-12">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
                         {/* About Section */}
                         <div className="space-y-4">
                             <h3 className="text-xl font-bold text-[#f2f8f1]">About Us</h3>

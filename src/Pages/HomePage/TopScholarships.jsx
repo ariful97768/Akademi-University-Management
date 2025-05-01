@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CardDetails from './ScholarshipCard';
 import ScholarshipsCard from './ScholarshipCard';
 
 const TopScholarships = ({ data }) => {
@@ -10,7 +9,7 @@ const TopScholarships = ({ data }) => {
                 <h2 className='text-5xl font-bold text-center '>Scholarships That <span className='text-[#14452F] underline'>Shine!</span></h2>
                 <p className='text-center max-w-2xl mx-auto pt-3 md:pt-5'>Explore the best scholarships to fund your education. Find opportunities based on merit, need, and field of study—apply with confidence!</p>
             </div>
-            <div className='grid mt-10 md:grid-cols-2 lg:grid-cols-3 max-w-screen-2xl mx-auto gap-7 md:px-10'>
+            <div className='grid mt-10 px-5 justify-center md:grid-cols-2 lg:grid-cols-3 max-w-screen-2xl mx-auto gap-7 md:px-10'>
                 {
                     data.map(d => <ScholarshipsCard key={d._id} scholarship={d} />)
                 }
