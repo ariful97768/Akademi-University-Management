@@ -4,6 +4,7 @@ import TopScholarships from './TopScholarships';
 import { useLoaderData } from 'react-router-dom';
 import Contact from './Contact';
 import Reviews from './Reviews';
+import LatestBlogs from './LatestBlogs';
 
 const Home = () => {
     const data = useLoaderData()
@@ -13,6 +14,7 @@ const Home = () => {
             <TopScholarships data={data} />
             <Reviews />
             <Contact />
+            <LatestBlogs />
         </section>
     );
 };

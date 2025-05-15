@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import patternBg from '../assets/Pattern-Bg.png';
+import patternBg from '../assets/Pattern-Bg-Footer.png';
 
 const Footer = () => {
     return (
@@ -34,7 +34,7 @@ const Footer = () => {
                             <h3 className="text-xl font-bold text-[#f2f8f1]">Quick Links</h3>
                             <ul className="space-y-2">
                                 <li><Link to="/" className="text-gray-300 hover:text-[#f2f8f1] transition">Home</Link></li>
-                                <li><Link to="/scholarships" className="text-gray-300 hover:text-[#f2f8f1] transition">Scholarships</Link></li>
+                                <li><Link to="/all-scholarships" className="text-gray-300 hover:text-[#f2f8f1] transition">Scholarships</Link></li>
                                 <li><Link to="/about" className="text-gray-300 hover:text-[#f2f8f1] transition">About</Link></li>
                                 <li><Link to="/contact" className="text-gray-300 hover:text-[#f2f8f1] transition">Contact</Link></li>
                             </ul>
