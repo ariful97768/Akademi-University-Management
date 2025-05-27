@@ -5,6 +5,8 @@ import { useLoaderData } from 'react-router-dom';
 import Contact from './Contact';
 import Reviews from './Reviews';
 import LatestBlogs from './LatestBlogs';
+import NewsLetter from './NewsLetter';
+import FAQ from './FAQ';
 
 const Home = () => {
     const data = useLoaderData()
@@ -15,6 +17,8 @@ const Home = () => {
             <Reviews />
             <Contact />
             <LatestBlogs />
+            <NewsLetter />
+            <FAQ/>
         </section>
     );
 };
