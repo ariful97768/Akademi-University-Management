@@ -7,7 +7,7 @@ import bgImg from '../../assets/Grid-Blog-image-1.png'
 import blogFeatureImg from '../../assets/Grid-Blog-image-2.webp';
 const LatestBlogs = () => {
     return (
-        <section className='xl:flex gap-10 justify-center max-w-screen-2xl py-20 md:px-10  bg-base-300'>
+        <section className='xl:flex gap-10 justify-center max-w-screen-2xl py-20 md:px-10 bg-[#F2F8F1]'>
             <div style={{ backgroundImage: `url(${bgImg})`, backgroundRepeat: "no-repeat" }} className='row-span-3 rounded-md max-h-[970px] flex flex-col justify-end gap-5 w-1/2'>
                 <div className='p-12 pb-10 grid gap-5'>
                     <p className='uppercase text-[#14452F]'>——— NOW TRENDING</p>
