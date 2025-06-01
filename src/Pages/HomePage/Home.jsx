@@ -11,15 +11,15 @@ import FAQ from './FAQ';
 const Home = () => {
     const data = useLoaderData()
     return (
-        <section>
+        <>
             <Banner />
             <TopScholarships data={data} />
             <Reviews />
             <Contact />
             <LatestBlogs />
             <NewsLetter />
-            <FAQ/>
-        </section>
+            <FAQ />
+        </>
     );
 };
 

@@ -24,6 +24,7 @@ import MyApplication from './Pages/Dashboard/User/MyApplication';
 import MyReviews from './Pages/Dashboard/User/MyReviews';
 import Charts from './Pages/Dashboard/Admin/Charts';
 import ErrorPage from './ErrorPage';
+import ContactUs from './Pages/ContactUs/Contact';
 
 
 const router = createBrowserRouter([
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
         path: '/scholarship-details/:id',
         element: <ScholarshipsDetails />,
         loader: ({ params }) => fetch(`https://akademi-university-project.vercel.app/scholarship/${params.id}`)
+      },
+      {
+        path: '/contact',
+        element: <ContactUs />,
       },
       {
         path: '/login',

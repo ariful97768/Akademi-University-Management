@@ -12,6 +12,7 @@ const Navbar = () => {
     const links = <>
         <NavLink className={'px-6 py-1 text-[#0c281b] text-base   rounded-xl'} to={'/'}>Home</NavLink>
         <NavLink className={'px-6 py-1 text-[#0c281b] text-base   rounded-xl'} to={'/all-scholarships'}>All Scholarship</NavLink>
+        <NavLink className={'px-6 py-1 text-[#0c281b] text-base   rounded-xl'} to={'/contact'}>Contact</NavLink>
         <NavLink className={'px-6 py-1 text-[#0c281b] text-base   rounded-xl'} to={'/dashboard'}>Dashboard</NavLink>
     </>
     return (

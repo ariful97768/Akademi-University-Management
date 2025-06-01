@@ -5,7 +5,7 @@ const FAQ = () => {
         <section className='flex gap-14 max-w-screen-2xl py-20 md:px-10 bg-[#F2F8F1]'>
             <div className='w-full md:max-w-[50%]'>
                 <div>
-                    <p className='mb-5 uppercase text-[#14452F]'>——— register for study</p>
+                    <p className='mb-5 uppercase text-[#14452F]'>——— Ask questions</p>
                     <h3 className='text-5xl font-bold mb-12 leading-[58px]'>Uncover your potential with <span className='text-[#14452F]'>Our</span> assistance</h3>
                 </div>
                 <div className='relative'>
