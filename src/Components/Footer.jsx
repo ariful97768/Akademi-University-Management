@@ -20,9 +20,9 @@ const Footer = () => {
             {/* Content */}
             <div className="relative z-10  text-white">
                 <div className="container mx-auto px-4 py-12">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                         {/* About Section */}
-                        <div className="space-y-4">
+                        <div className="space-y-4 md:mx-auto">
                             <h3 className="text-xl font-bold text-[#f2f8f1]">About Us</h3>
                             <p className="text-gray-300">
                                 We are dedicated to helping students find the perfect scholarship opportunities to fund their education and achieve their academic dreams.
@@ -30,7 +30,7 @@ const Footer = () => {
                         </div>
 
                         {/* Quick Links */}
-                        <div className="space-y-4">
+                        <div className="space-y-4 md:mx-auto">
                             <h3 className="text-xl font-bold text-[#f2f8f1]">Quick Links</h3>
                             <ul className="space-y-2">
                                 <li><Link to="/" className="text-gray-300 hover:text-[#f2f8f1] transition">Home</Link></li>
@@ -41,7 +41,7 @@ const Footer = () => {
                         </div>
 
                         {/* Contact Info */}
-                        <div className="space-y-4">
+                        <div className="space-y-4 md:mx-auto">
                             <h3 className="text-xl font-bold text-[#f2f8f1]">Contact Us</h3>
                             <ul className="space-y-2">
                                 <li className="flex items-center space-x-2">
@@ -64,25 +64,6 @@ const Footer = () => {
                                     <span className="text-gray-300">123 Education St, Learning City</span>
                                 </li>
                             </ul>
-                        </div>
-
-                        {/* Newsletter */}
-                        <div className="space-y-4">
-                            <h3 className="text-xl font-bold text-[#f2f8f1]">Newsletter</h3>
-                            <p className="text-gray-300">Subscribe to our newsletter for the latest scholarship updates.</p>
-                            <form className="flex space-x-2">
-                                <input
-                                    type="email"
-                                    placeholder="Your email"
-                                    className="flex-1 px-4 py-2 rounded-lg bg-[#14452F] text-white focus:outline-none focus:ring-2 focus:ring-[#f2f8f1]"
-                                />
-                                <button
-                                    type="submit"
-                                    className="px-4 py-2 bg-[#185137] text-white rounded-lg hover:bg-[#238358] transition"
-                                >
-                                    Subscribe
-                                </button>
-                            </form>
                         </div>
                     </div>
 
